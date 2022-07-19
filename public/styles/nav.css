@@ -1,0 +1,39 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #4056A1;
+}
+
+.title {
+  color: #FFFFFF;
+  font-family: Bungee, sans-serif;
+  margin-left: 1.5em;
+  margin-top: 2em;
+}
+
+.aligntweettop {
+  margin-top: 2em;
+}
+
+.bold {
+  color: #FFFFFF;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  margin-left: 1.5em;
+}
+
+.newtweet {
+  color: #FFFFFF;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-right: 0.5em;
+}
+
+.navarrow {
+  color: #db080895;
+  margin-right: 0.5em;
+}
