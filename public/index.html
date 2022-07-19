@@ -17,12 +17,14 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/posted.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </head>
 
 <body>
@@ -38,20 +40,20 @@
   </nav>
 
     <!-- Content below nav -->
-  <header>
+  <header class="nav-header">
     <div>
       <img src="/images/profile-hex.png">
     </div>
     <br>
     <div>
-      <h2>MOKAVELLI</h2>
+      <h2>AUTHOR</h2>
     </div>
   </header>
 
   <!-- Page-specific (main) content here -->
   <main class="container">
     <!-- Placeholder comments -->
-    <div>
+    <!-- <div>
       <p>User 1: First comment of the day!</p>
     </div>
     <div>
@@ -71,20 +73,48 @@
     </div>
     <div>
       <p>Lorem Ipsum 3: Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</p>
-    </div>
+    </div> -->
     <!-- Form section inside main -->
     <section class="new-tweet">
       <div>
         <h2>Compose Tweet</h2>
       </div>
       <form method="POST" action="/tweets">
-        <textarea class="tweetarea" name="text" id="tweet-text" placeholder="Enter new Tweet here"></textarea>
+        <textarea class="tweetarea" name="text" id="tweet-text" placeholder="What would you like to Tweet about?"></textarea>
         <div class="button">
           <button class="button-style" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
+    <!-- Article holding tweets feed -->
+
+    <article class="tweetFeed">
+      <header>
+        <div class="username">
+          <p>Mohammad</p>
+        </div>
+        <div class="account">
+          <p>@MOKAVELLI</p>
+        </div>
+        </header>
+
+      <content>
+        <p>One does not simply tweet without applying CSS, but one should also know when the text is too long. One does not simply tweet without applying CSS, but one should also know when the text is too long. </p>
+      </content>
+
+      <footer>
+        <div>
+          <p class="elapsedTime">Just Now</p>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+        </div>
+      </footer>
+
+    </article>
   </main>
 </body>
 </html>

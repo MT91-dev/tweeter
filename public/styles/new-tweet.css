@@ -5,18 +5,21 @@
   align-items: center;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
-  border-style: hidden hidden solid hidden;
-  width: 500px;
+  width: 100%;
+}
+
+.new-tweet form {
+  width: 100%;
 }
 
 .tweetarea {
-  display: flex;
+  resize: none;
   background-color: #f4f1ec;
-  align-items: center;
   font-family: 'Source Sans Pro', sans-serif;
+  justify-content: space-between;
   font-size: 20px;
   border-style: hidden hidden solid hidden;
-  width: 500px;
+  width: 100%;
   margin-bottom: 10px;
   border-width: 3px;
 }
@@ -24,7 +27,7 @@
 .counter {
   color: #000000;
   font-family: Bungee, sans-serif;
-  margin-left: 365px;
+  float: right;
 }
 
 .button {
@@ -35,4 +38,8 @@
   background-color: #4c49d8;
   color: #ffffff;
   font-family: Bungee, sans-serif;
+}
+
+.red {
+  color: #ff0000;
 }
