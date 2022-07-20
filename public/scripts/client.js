@@ -8,29 +8,31 @@ $(document).ready(function () {
 
   const createTweetElement = function (tweet) {
 
+    const $userInput = $("<p>").text(tweet.content.text)
+
     const $tweet = $(`
 
       <article class="tweetFeed">
-      <header>
-      <span class="avatar"><img src=${tweet.user.avatars}></span>
-      <span class="username"><p>${tweet.user.name}</p></span>
-      <span class="account"><p>${tweet.user.handle}</p></span>
-      </header>
+        <header>
+          <span class="avatar"><img src=${tweet.user.avatars}></span>
+          <span class="username"><p>${tweet.user.name}</p></span>
+          <span class="account"><p>${tweet.user.handle}</p></span>
+        </header>
 
-      <content>
-        <p>${tweet.content.text}</p>
-      </content>
+        <content>
+          <p>${$userInput.html()}</p>
+        </content>
 
-      <footer>
-        <div>
-          <p class="elapsedTime">${timeago.format(tweet.created_at)}</p>
-        </div>
-        <div class="icons">
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-        </div>
-      </footer>
+        <footer>
+          <div>
+            <p class="elapsedTime">${timeago.format(tweet.created_at)}</p>
+          </div>
+          <div class="icons">
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-heart"></i>
+          </div>
+        </footer>
       </article>`)
 
     return $tweet;
@@ -49,32 +51,37 @@ $(document).ready(function () {
 
   const $tweetForm = $('.tweet-form');
 
-  $tweetForm.submit(function(event) {
+  $tweetForm.submit(function (event) {
     event.preventDefault(); //will not submit the old fashioned way, we want to submit an ajax request instead
+    $(".error-message").hide(); //as a default, hides the error message window unless required below in conditional
 
-    if ($("#tweet-text").val().length === 0){
-      return alert("The tweet you have entered is empty, please try again!")
-    } else if ($("#tweet-text").val().length > 140){
-      return alert("The tweet you have entered exceeds the character limit, pleast try again!")
+    if ($("#tweet-text").val().length === 0) {
+      $(".error-message").show()
+      $(".error-message").text("The tweet you have entered is empty, please try again!");
+      return;
+    } else if ($("#tweet-text").val().length > 140) {
+      $(".error-message").show();
+      $(".error-message").text("The tweet you have entered exceeds the character limit, pleast try again!");
+      return;
     }
 
     $.ajax({
       type: "POST",
       url: `/tweets`,
       data: $(this).serialize(),
-    }).then(function() {
+    }).then(function () {
       event.target[0].value = "";
       loadTweets();
     })
   })
 
-  const loadTweets = function() {
+  const loadTweets = function () {
     $(".tweet-container").empty();
 
     $.ajax({
       type: "GET",
       url: `/tweets`,
-      success: function(data) {
+      success: function (data) {
         renderTweets(data);
       },
     });
