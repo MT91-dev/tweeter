@@ -43,24 +43,29 @@ $(document).ready(function () {
 
     for (const tweet of tweets) {
       let $currentTweet = createTweetElement(tweet);
-      $(".tweet-container").append($currentTweet);
+      $(".tweet-container").prepend($currentTweet); //prepend instead of append shows ascending order of tweets based on date
     }
   }
 
-  const $tweetForm = $('#tweet-form');
+  const $tweetForm = $('.tweet-form');
 
   $tweetForm.submit(function(event) {
     event.preventDefault(); //will not submit the old fashioned way, we want to submit an ajax request instead
 
+    if ($("#tweet-text").val().length === 0){
+      return alert("The tweet you have entered is empty, please try again!")
+    } else if ($("#tweet-text").val().length > 140){
+      return alert("The tweet you have entered exceeds the character limit, pleast try again!")
+    }
 
     $.ajax({
       type: "POST",
       url: `/tweets`,
       data: $(this).serialize(),
     }).then(function() {
-      loadTweets()
+      event.target[0].value = "";
+      loadTweets();
     })
-    // console.log($(this).serialize());
   })
 
   const loadTweets = function() {
@@ -74,4 +79,6 @@ $(document).ready(function () {
       },
     });
   }
+
+  loadTweets();
 });
