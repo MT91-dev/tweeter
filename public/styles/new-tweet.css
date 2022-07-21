@@ -1,3 +1,4 @@
+/* CSS for new tweet and its slements, consisting of the form, the title, the tweet button and character counter */
 .new-tweet {
   display: flex;
   flex-direction: column;
@@ -8,6 +9,7 @@
   width: 100%;
 }
 
+/* CSS for the error message on invalid tweet submission */
 .new-tweet .error-message {
   background-color: #ffffff;
   color: #f00000;
@@ -38,16 +40,23 @@
   border-width: 3px;
 }
 
+/* Removes the outline on focus when targeting the form */
 .tweetarea:focus {
   outline: none;
 }
 
+/* Character counter font, position, and red class when limit is exceeded */
 .counter {
   color: #000000;
   font-family: Bungee, sans-serif;
   float: right;
 }
 
+.red {
+  color: #ff0000;
+}
+
+/* Tweet submit button styles */
 .button {
   margin-bottom: 30px;
 }
@@ -56,8 +65,4 @@
   background-color: #4c49d8;
   color: #ffffff;
   font-family: Bungee, sans-serif;
-}
-
-.red {
-  color: #ff0000;
 }

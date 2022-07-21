@@ -1,3 +1,4 @@
+/* CSS for the header element which contains the avatar, Author and backdrop */
 .nav-header {
   display: flex;
   flex-direction: column;

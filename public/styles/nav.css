@@ -1,3 +1,4 @@
+/* CSS for the nav bar, consisting of the title, write tweet sentence, bolding of write as well as the downward arrow */
 nav {
   display: flex;
   flex-direction: row;
@@ -6,7 +7,8 @@ nav {
   top: 0;
   width: 100%;
   height: 120px;
-  background-color: #4056A1;
+  background-image: url("black-felt.png");
+  background-color: #ff0000ac;
 }
 
 .title {
@@ -21,7 +23,7 @@ nav {
 }
 
 .bold {
-  color: #FFFFFF;
+  color: #000000;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
   margin-left: 1.5em;
@@ -34,6 +36,21 @@ nav {
 }
 
 .navarrow {
-  color: #db080895;
+  color: #000000;
   margin-right: 0.5em;
+}
+
+/* CSS for breakpoint when switching between desktop/mobile views, slight changes in color for unique feel */
+@media only screen and (min-width:1024px) {
+  nav {
+    background-color: #234dc3;
+  }
+
+  .navarrow {
+    color: #ff0000;
+  }
+
+  .bold {
+    color: #ff0000;
+  }
 }

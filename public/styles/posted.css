@@ -1,3 +1,4 @@
+/* CSS for flex, padding, font setup, borders, and alignment of the content in the header, content and footer */
 .tweetFeed {
   display: flex;
   flex-direction: column;
@@ -11,9 +12,7 @@
 }
 
 .tweetFeed header {
-  /* display: flex; */
   flex-direction: row;
-  /* align-items: center; */
   background-color: #f4f1ec;
   color: #000000;
   font-family: 'Source Sans Pro', sans-serif;
@@ -41,10 +40,13 @@
   font-size: 20px;
 }
 
+/* Padding between the individual tweets */
 .tweet-container {
   padding-bottom: 1em;
+  width: 100%;
 }
 
+/* Username and account styling */
 .username {
   font-weight: bold;
   display: inline-block;
@@ -56,11 +58,13 @@
   float: right;
 }
 
+/* Box shadow for when mouse is hovered over a single new tweet box */
 .tweetFeed:hover {
   cursor: pointer;
   box-shadow: 0 0 10px #000000;
 }
 
+/* Posted tweet reaction icons, flag, retweet and like */
 .fa-flag:hover {
   color: #e3a20a
 }
