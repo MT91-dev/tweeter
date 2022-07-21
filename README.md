@@ -23,7 +23,7 @@ ENTERING NEW TWEET (Mobile View):
 
 1. Start by ensuring you are on the correct version of node prior to installing the other app-related dependencies.
 2. Install all dependencies (using the `npm install` command)
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
+3. Start the web server using the `npm start` command. The app will be served at <http://localhost:8080/> via Express.
 4. Go to <http://localhost:8080/> in your browser.
 5. Enjoy and have fun utilizing the app and its features as it works on mobile and desktop!
 
