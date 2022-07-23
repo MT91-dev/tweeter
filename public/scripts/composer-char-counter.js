@@ -7,8 +7,9 @@ $(document).ready(function () {
   //adding an event handler input on tweetText element with jQuery
   $(tweetText).on('input', function() {
     //listening for the characters entered, getting their length, subtracting from the limit and traversing up the dom tree to find the element for counter via the class
+    const limitChar = 140;
     let charEntered = ($(this).val().length);
-    let charRemaining = 140 - charEntered;
+    let charRemaining = limitChar - charEntered;
     let targetCounter = ($(this).parent().children().children('.counter'));
     
     //minor validation that adds a new class "red" to the counter so that CSS can be applied via the red class
@@ -17,7 +18,6 @@ $(document).ready(function () {
     } else {
       targetCounter.removeClass('red');
     }
-
     //replacing the text that is shown at the counter element with the charRemaining variable computed from above
     $(targetCounter).text(charRemaining);
     

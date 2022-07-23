@@ -20,24 +20,24 @@ nav {
 
 .aligntweettop {
   margin-top: 2em;
+  text-align: center;
+  margin-right: 0.5em;
 }
 
 .bold {
   color: #000000;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
-  margin-left: 1.5em;
 }
 
 .newtweet {
   color: #FFFFFF;
   font-family: 'Source Sans Pro', sans-serif;
-  margin-right: 0.5em;
 }
 
 .navarrow {
   color: #000000;
-  margin-right: 0.5em;
+  text-align: center;
 }
 
 /* CSS for breakpoint when switching between desktop/mobile views, slight changes in color for unique feel */

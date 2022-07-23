@@ -61,14 +61,16 @@ $(document).ready(function () {
   $tweetForm.submit(function (event) {
     event.preventDefault(); //will not submit the old fashioned way, we want to submit an ajax request instead
     $(".error-message").hide(); //as a default, hides the error message window unless required below in conditional
+    const limitChar = 140; //variable to set character count limit
 
+    const tweetText = $("#tweet-text").val().length;
     //validation to check if the submission is empty or too long, with appropriate error messages displayed
-    if ($("#tweet-text").val().length === 0) {
-      $(".error-message").show()
+    if (!tweetText) {
+      $(".error-message").slideDown();
       $(".error-message").text("The tweet you have entered is empty, please try again!");
       return;
-    } else if ($("#tweet-text").val().length > 140) {
-      $(".error-message").show();
+    } else if (tweetText > 140) {
+      $(".error-message").slideDown();
       $(".error-message").text("The tweet you have entered exceeds the character limit, pleast try again!");
       return;
     }
@@ -80,6 +82,7 @@ $(document).ready(function () {
       data: $(this).serialize(),
     }).then(function () {
       event.target[0].value = ""; //resets the form after submission to be blank
+      $('.counter').text(limitChar); //resetting the character counter to 140 on submission event
       loadTweets(); // running the loadTweets function each time a user submits a tweet
     })
   })

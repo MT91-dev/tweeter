@@ -1,6 +1,7 @@
 /* CSS for the header element which contains the avatar, Author and backdrop */
 .nav-header {
   display: flex;
+  align-self: flex-start;
   flex-direction: column;
   align-items: center;
   height: 400px;
@@ -9,4 +10,15 @@
   background-color: #ff0000ac;
   color: #06050591;
   margin-top: 120px;
+}
+
+/* CSS for media query that adds border, margin and min width to nav header */
+@media only screen and (min-width:1024px) {
+  .nav-header {
+    justify-content: center;
+    border-radius: 10%;
+    margin-right: 2em;
+    min-width: 40%;
+    margin-top: calc(120px + 0.83em);
+  }
 }
